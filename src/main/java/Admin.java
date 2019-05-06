@@ -4,7 +4,11 @@ import lombok.NoArgsConstructor;
 import java.security.acl.Owner;
 
 @Data
-public class Admin extends Account{
+public class Admin{
     private String name;
-    private Account account;
+
+    public void changeAccountOwner(Account account, Client owner) {
+        account.setOwner(owner, this);
+        //owner.setAccount(null);
+    }
 }
